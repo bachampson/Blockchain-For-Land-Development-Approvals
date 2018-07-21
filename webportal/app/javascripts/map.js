@@ -168,7 +168,7 @@ function refreshMap(proposedHash, affectedLots) {
     var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
     $$.get({
-        url: "https://ipfs.io/ipfs/" + proposedHash,
+        url: proposedHash,
         dataType: 'text',
         success: function (data) {
             // console.log("XML is: ", data)
