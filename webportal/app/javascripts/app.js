@@ -6,6 +6,8 @@ import "../stylesheets/main.css";
 import { default as Web3 } from 'web3';
 import { default as contract } from 'truffle-contract'
 
+import {default as buffer} from './buffer.js'
+
 // Import our contract artifacts and turn them into usable abstractions.
 import daRegister_artifacts from '../../../truffle/build/contracts/DARegister.json'
 import daDetails_artifacts from '../../../truffle/build/contracts/DADetails.json'
@@ -24,7 +26,8 @@ window.App = {
     var that = this;
     var reader = new FileReader();
     reader.onloadend = function () {
-      const ipfs = window.IpfsApi('ipfs.landchain.com.au', 5001) // Connect to IPFS
+      // ** CHANGE THIS TO YOUR IPFS NODE ADDRESS IF NOT LOCALHOST **
+      const ipfs = window.IpfsApi('localhost', 5001) // Connect to IPFS
       const buf = buffer.Buffer(reader.result) // Convert data into buffer
       ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
         if (err) {
