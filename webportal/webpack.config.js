@@ -5,7 +5,8 @@ module.exports = {
   entry:  {
     app: ['./app/javascripts/app.js'],
     view: ['./app/javascripts/view.js'],
-    map: ['./app/javascripts/map.js']
+    map: ['./app/javascripts/map.js'],
+    buffer: ['./app/javascripts/buffer.js']
   },
   output: {
     path: path.resolve(__dirname, 'build'),

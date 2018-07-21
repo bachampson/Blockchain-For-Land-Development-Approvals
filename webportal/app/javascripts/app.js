@@ -13,6 +13,8 @@ import daDetails_artifacts from '../../../truffle/build/contracts/DADetails.json
 var DaRegister = contract(daRegister_artifacts);
 var DaDetails = contract(daDetails_artifacts);
 
+import { Buffer } from './buffer'
+
 var accounts;
 var account;
 
@@ -24,14 +26,14 @@ window.App = {
     var that = this;
     var reader = new FileReader();
     reader.onloadend = function () {
-      const ipfs = window.IpfsApi('ipfs.landchain.com.au', 5001) // Connect to IPFS
-      const buf = buffer.Buffer(reader.result) // Convert data into buffer
+      const ipfs = window.IpfsApi('23.101.217.250', 5001) // Connect to IPFS
+      const buf = Buffer(reader.result) // Convert data into buffer
       ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
         if (err) {
           console.error(err);
           return 0;
         }
-        let url = `https://ipfs.io/ipfs/${result[0].hash}`;
+        let url = `http://23.101.217.250:8080/ipfs/${result[0].hash}`;
         el.html('Uploaded');
         el.prop('disabled', true);
         el.parent().siblings().eq(0).prop('disabled', true);
