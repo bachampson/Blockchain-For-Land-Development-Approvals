@@ -1,10 +1,27 @@
+var TestRPC = require("ganache-cli");
+
 var HDWalletProvider = require("truffle-hdwallet-provider");
 var mnemonic = "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
 
 module.exports = {
-  // See <http://truffleframework.com/docs/advanced/configuration>
-  // to customize your Truffle configuration!
+  mocha: {
+    reporter: "spec",
+    //reporter: "mocha-junit-reporter",
+    reporterOptions: {
+      mochaFile: 'TEST-truffle.xml'
+    }
+  },
   networks: {
+    development: {
+      host: "localhost",
+      port: 8545,
+      network_id: "*" // Match any network id
+    },
+    // add a new network definition that will self host TestRPC
+    localtest: {
+      provider: TestRPC.provider(),
+      network_id:"*"
+    },
     ganache: {
       host: "127.0.0.1",
       port: 7545,
