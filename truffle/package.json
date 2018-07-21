@@ -1,0 +1,25 @@
+{
+  "name": "pdchain-truffle",
+  "version": "1.0.0",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "truffle-hdwallet-provider": "0.0.5"
+  },
+  "devDependencies": {
+    "ethereumjs-testrpc": "^6.0.3",
+    "ganache-cli": "^6.1.6",
+    "mocha": "^5.2.0",
+    "mocha-junit-reporter": "^1.17.0",
+    "truffle": "^4.1.13"
+  },
+  "description": ""
+}
