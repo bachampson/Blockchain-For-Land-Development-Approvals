@@ -139,11 +139,11 @@ window.App = {
     console.log(daid);
     var daRegister;
     this.clear();
-    self.setStatus("Locating Development Application register");
+    self.setStatus("Locating Development Application Register");
     return DaRegister.deployed()
       .then(function (instance) {
         daRegister = instance;
-        self.setStatus("Searching register for " + daid);
+        self.setStatus("Searching Register for " + daid);
 
         return daRegister.getDADetailsAddress.call(daid, { from: account });
       })
@@ -290,7 +290,7 @@ window.App = {
 
     let dateLodgedInUnixTimestamp = date / 1000;
     var lga = document.getElementById("lga").value;
-    this.setStatus("Initiating transaction... (please wait)");
+    this.setStatus("Initiating Transaction");
 
     var daRegister;
 
@@ -332,7 +332,7 @@ window.App = {
     DaRegister.deployed().then(function (instance) {
       daRegister = instance;
       console.log("Retrieving");
-      self.setStatus("Searching register for " + daid);
+      self.setStatus("Searching Register for " + daid);
       return daRegister.getDADetailsAddress.call(daid, { from: account });
     }).then(function (result) {
 
@@ -410,11 +410,11 @@ window.App = {
 
     return localforage.getItem('myStorage').then(function (storage) {
 
-      self.setStatus("Locating Development Application register");
+      self.setStatus("Locating Development Application Register");
       return DaRegister.deployed().then(function (instance) {
         daRegister = instance;
         console.log("Retrieving");
-        self.setStatus("Searching register for " + daid);
+        self.setStatus("Searching Register for " + daid);
         return daRegister.getDADetailsAddress.call(daid, { from: account });
       }).then(function (result) {
 
