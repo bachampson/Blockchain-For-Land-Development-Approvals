@@ -136,6 +136,7 @@ window.App = {
     var self = this;
     var events = [];
     var daid = document.getElementById("searchdaid").value;
+    console.log(daid);
     var daRegister;
     this.clear();
     self.setStatus("Locating Development Application register");

@@ -28,7 +28,7 @@
             <i class="fas fa-plus"></i> Create Application
           </a>
         </div>
-        <div class="item">
+        <div class="item active">
           <a href="view-app.html">
             <i class="fas fa-search"></i> Search Applications
           </a>
@@ -38,7 +38,7 @@
             <i class="fas fa-check"></i> Approve Applications
           </a>
         </div>
-        <div class="item active">
+        <div class="item">
           <a href="add-event.html">
             <i class="fas fa-stream"></i> Add Event
           </a>
@@ -48,7 +48,11 @@
     </div>
     <div class="content">
       <div class="left-col">
-        <form>
+        <div class="search">
+          <input class="form-control" id="searchdaid" type="text">
+          <button type="button" class="btn btn-primary" onclick="App.viewDA()">Search</button>
+        </div>
+        <form id="mainForm">
           <div class="form-group">
             <label for="daid">Application Id</label>
             <input type="text" class="form-control" id="daid" readonly>
@@ -81,7 +85,7 @@
           <div id="attachments">
             <div class="form-group">
               <label for="attachments">Attachment</label>
-              <div class="col-md-12 col-sm-12 " id="right-aside">
+              <div id="right-aside">
                 <div class="content">
                   <ul class="list-group" id="view-app-list">
                     <li class="list-group-item">Loading...</li>
@@ -94,7 +98,7 @@
           <div id="events">
             <div class="form-group">
               <label for="events">Events</label>
-              <div class="col-md-12 col-sm-12 " id="right-aside">
+              <div id="right-aside">
                 <div class="content">
                   <ul class="list-group" id="view-app-events">
                     <li class="list-group-item">Loading...</li>
@@ -103,16 +107,11 @@
               </div>
             </div>
           </div>
-
-
         </form>
       </div>
       <div class="right-col">
-        <div id="log">
-
-        </div>
+        <div id="log"></div>
       </div>
-
     </div>
   </div>
 

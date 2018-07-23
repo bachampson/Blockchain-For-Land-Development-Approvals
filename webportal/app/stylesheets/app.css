@@ -363,3 +363,8 @@ label {
 form {
   margin-right: 0;
 }
+
+.search {
+  display: flex;
+  margin-bottom: 1rem;
+}
