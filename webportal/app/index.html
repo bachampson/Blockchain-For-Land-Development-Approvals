@@ -50,29 +50,6 @@
   <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js" integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.5.7/localforage.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/shine.js/0.2.7/shine.min.js"></script>
-  <script type="text/javascript">
-    var $$ = jQuery.noConflict();
-    var fileName = "";
-    var fileType = "";
-    var config_text1 = new shinejs.Config({
-            numSteps: 5,
-            opacity: 0.2,
-            offset: 0.2,
-            blur: 40,
-            shadowRGB: new shinejs.Color(0,0,0)
-      });         
-
-      var shine_text1 = new Shine(document.getElementById('text1'), config_text1);
-
-      function handleMouseMove_text1(event) {
-        shine_text1.light.position.x = event.clientX;
-        shine_text1.light.position.y = event.clientY;
-        shine_text1.draw();
-      } 
-      
-      window.addEventListener('mousemove', handleMouseMove_text1, false);
-  </script>
 
 </body>
 

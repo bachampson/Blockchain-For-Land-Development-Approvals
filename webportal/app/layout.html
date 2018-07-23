@@ -19,23 +19,23 @@
   <div class="site-container">
     <div class="left-nav">
       <div class="root-nav">
-        <div class="item active">Development Applications</div>
+        <div class="item">Development Applications</div>
         <div class="item">Settings</div>
       </div>
       <div class="sub-nav">
         <div class="item">
           <a href="new-app.html">
-            <i class="fas fa-plus"></i> Create Application
+            <i class="fas fa-plus"></i> Create New Application
           </a>
         </div>
         <div class="item">
           <a href="view-app.html">
-            <i class="fas fa-search"></i> Search Applications
+            <i class="fas fa-search"></i> Search
           </a>
         </div>
-        <div class="item active">
+        <div class="item">
           <a href="approve-app.html">
-            <i class="fas fa-check"></i> Approve Applications
+            <i class="fas fa-check"></i> Approve
           </a>
         </div>
         <div class="item">
@@ -48,35 +48,32 @@
     </div>
     <div class="content">
       <div class="left-col">
-        <form>
-          <div class="form-group">
-            <label for="states">Application Status</label>
-            <select size="4" class="form-control" id="states" onchange="App.showDiv(this)">
-              <option value="DA Approved">DA Approved</option>
-              <option value="CC Lodged">CC Lodged</option>
-              <option value="CC Approved">CC Approved</option>
-              <option value="SC Lodged">SC Lodged</option>
-              <option value="SC Approved">SC Approved</option>
-              <option value="Plan Approve">Plan Approve</option>
-              <option value="Plan Registered">Plan Registered</option>
-            </select>
-          </div>
-
+        <form id="mainForm">
           <div class="form-group">
             <label for="daid">Application Id</label>
             <input type="text" class="form-control" id="daid">
           </div>
           <div class="form-group">
             <label for="dateLodged">Date Lodged</label>
-            <input type="date" class="form-control" id="dateLodged">
-          </div>
-          <div class="form-group">
-            <label for="dateApproved">Date Approved</label>
-            <input type="date" class="form-control" id="dateApproved">
+            <input type="date" class="form-control" id="dateLodged" placeholder="Date">
           </div>
           <div class="form-group">
             <label for="description">Description</label>
             <textarea id="description" class="form-control" rows="2"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="ecost">Estimated Costs</label>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend2">$</span>
+              </div>
+              <input type="text" class="form-control" id="ecost">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lga">LGA</label>
+            <input type="text" class="form-control" id="lga">
           </div>
           <div id="attachments">
             <div class="form-group">
@@ -92,9 +89,10 @@
               <button type="button" class="btn btn-outline-secondary" id="add-new-attachments">Add new attachments</button>
             </div>
           </div>
+
           <div class="form-group row">
             <div class="col-sm-10">
-              <button type="button" class="btn btn-primary" onclick="App.approveDA()">Approve</button>
+              <button type="button" class="btn btn-primary" onclick="App.submitDADetails()">Lodge</button>
               <button type="button" class="btn btn-secondary" onclick="App.clear()">Clear</button>
             </div>
           </div>

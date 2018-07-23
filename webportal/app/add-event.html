@@ -5,103 +5,79 @@
   <title>Development Application - Blockchain POC Frontend</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
   <script src="./app.js"></script>
-  <script src="./buffer.js"></script>
 </head>
 
 <body>
-  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Development Application</a>
-    <input class="form-control form-control-dark w-100" type="text" aria-label="Search">
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" href="#"></a>
-      </li>
-    </ul>
-  </nav>
-
-  <div class="container-fluid">
-    <div class="row">
-      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">
-                Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="new-app.html">
-                New
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="view-app.html">
-                View
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="approve-app.html">
-                Approve
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="add-event.html">
-                Add Event
-              </a>
-            </li>
-          </ul>
+  <div class="top-nav">
+    <a class="" href="#">
+      <img src="/images/logo.png" class="logo" />
+    </a>
+  </div>
+  <div class="site-container">
+    <div class="left-nav">
+      <div class="root-nav">
+        <div class="item active">Development Applications</div>
+        <div class="item">Settings</div>
+      </div>
+      <div class="sub-nav">
+        <div class="item">
+          <a href="new-app.html">
+            <i class="fas fa-plus"></i> Create Application
+          </a>
         </div>
-      </nav>
-
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-
-        <div id="approvedevapp">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Add Development Application Event</h1>          
+        <div class="item">
+          <a href="view-app.html">
+            <i class="fas fa-search"></i> Search Applications
+          </a>
         </div>
-          <form id="mainForm">
-            <div class="form-group row">
-              <label for="daid" class="col-sm-2 col-form-label">Application Id</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="daid">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="description" class="col-sm-2 col-form-label">Description</label>
-              <div class="col-sm-10">
-                <textarea id="description" class="form-control" rows="2"></textarea>
-              </div>
-            </div>
-            <div id="attachments">
-              <div class="form-group">
-                <label for="attachments">Attachment</label>
-                <div class="input-group mb-3">
-                  <input type="file" class="form-control" placeholder="Attachment" name="attachments[]">
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-secondary upload-attachment" type="button">Upload</button>
-                  </div>
+        <div class="item">
+          <a href="approve-app.html">
+            <i class="fas fa-check"></i> Approve Applications
+          </a>
+        </div>
+        <div class="item active">
+          <a href="add-event.html">
+            <i class="fas fa-stream"></i> Add Event
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="content">
+      <div class="left-col">
+        <form>
+          <div class="form-group">
+            <label for="daid">Application Id</label>
+            <input type="text" class="form-control" id="daid">
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" rows="2"></textarea>
+          </div>
+          <div id="attachments">
+            <div class="form-group">
+              <label for="attachments">Attachment</label>
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" placeholder="Attachment" name="attachments[]">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary upload-attachment" type="button">Upload</button>
                 </div>
               </div>
             </div>
-            <div class="form-group row">
-              <label for="status" class="col-sm-2 col-form-label">Status</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="status" readonly>
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="button" class="btn btn-primary" onclick="App.addEventLogDA()">Add</button>
-                <button type="button" class="btn btn-secondary" onclick="App.clear()">Clear</button>
-              </div>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-primary" onclick="App.addEventLogDA()">Add</button>
+            <button type="button" class="btn btn-secondary" onclick="App.clear()">Clear</button>
+          </div>
+        </form>
+      </div>
+      <div class="right-col">
+        <div id="log"></div>
+      </div>
     </div>
-    </main>
-  </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -110,7 +86,6 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.3/prototype.min.js"></script>
   <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js" integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
     crossorigin="anonymous"></script>
