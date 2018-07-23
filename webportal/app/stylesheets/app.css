@@ -195,7 +195,6 @@ h3 {
 
 .sub-nav {
   background-color: #272b30;
-  padding: 0.5rem;
   color: rgb(199, 199, 199);
 }
 
@@ -237,30 +236,45 @@ body {
 
 .site-container > .left-nav {
   background-color: rgb(29, 29, 29);
-  width: 12rem;
+  width: 24rem;
   color: #bfbfbf;
   display: flex;
-  flex-direction: column;
 }
 
 .site-container > .left-nav > .header {
   padding: 0.5rem;
 }
 
-.site-container > .left-nav > .item {
-  padding: 0.5rem;
+.site-container > .left-nav .sub-nav {
+  font-size: 0.8rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.site-container > .left-nav .item {
+  padding: 0.25rem 0.5rem;
   border-bottom: 1px solid #2c2b2b;
 }
 
-.site-container > .left-nav > .item > a {
+.site-container > .left-nav .item > a {
   color: #bfbfbf;
   text-decoration: none;
 }
 
 .site-container > .content {
   display: flex;
-  flex-direction: column;
   flex: 1;
+}
+
+.left-col, .right-col {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.right-col {
+  flex: 2;
 }
 
 .site-container > .content > .header {
@@ -303,5 +317,32 @@ input, textarea {
 }
 
 .input-group-text {
+  border-radius: 0;
+}
+
+#log {
+  background-color: #1d1d1d;
+  min-height: 70rem;
+  width: 70rem;
+  padding: 0.5rem;
+  color: #fff;
+  opacity: 0.9;
+  border-radius: 3px;           
+}
+
+#log .log-line.success {
+  color: #00c700;
+}
+
+#log .log-line.error {
+  color: red;
+}
+
+#log .time {
+  margin-right: 0.5rem;
+  opacity: 0.5;
+}
+
+.btn {
   border-radius: 0;
 }

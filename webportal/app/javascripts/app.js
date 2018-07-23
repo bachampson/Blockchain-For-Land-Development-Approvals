@@ -116,18 +116,18 @@ window.App = {
 
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function (err, accs) {
-      // if (err != null) {
-      //   alert("There was an error fetching your accounts.");
-      //   return;
-      // }
+      if (err != null) {
+        alert("There was an error fetching your accounts.");
+        return;
+      }
 
-      // if (accs.length == 0) {
-      //   alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
-      //   return;
-      // }
+      if (accs.length == 0) {
+        alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
+        return;
+      }
 
-      // accounts = accs;
-      // account = accounts[0];
+      accounts = accs;
+      account = accounts[0];
 
     });
   },
@@ -267,13 +267,11 @@ window.App = {
           });
 
         }).catch(function (e) {
-          self.setStatus("Error getting address " + e);
+          self.c("Error getting address " + e);
         });
       }).catch(function (e) {
         self.setStatus("Error " + e);
       });
-
-    self.setStatus("");
 
   },
 
@@ -619,8 +617,25 @@ window.App = {
     });
   },
 
-  setStatus: function (message) {
-    document.getElementById("status").value = message;
+  setStatus: function (message, type) {
+
+    var time = new Date();
+    var logElem = document.getElementById("log");
+    var logLine = document.createElement("div");
+    var timeStampElem = document.createElement("span");
+    logLine.classList.add("log-line");
+    if(type) {
+      logLine.classList.add(type);
+    }
+    timeStampElem.classList.add("time");
+    var messageText = document.createTextNode(message);
+    
+    logLine.appendChild(timeStampElem);
+    var text = document.createTextNode("["+time.toLocaleTimeString()+"]");
+    //timeStampElem.innerText = "["+time.toLocaleTimeString()+"]";
+    timeStampElem.appendChild(text);
+    logLine.appendChild(messageText);
+    logElem.appendChild(logLine);
   },
 
   getCurrentState: function (details, self) {
@@ -764,7 +779,9 @@ window.addEventListener('load', function () {
     console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 MetaCoin, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
     // Use Mist/MetaMask's provider
     window.web3 = new Web3(web3.currentProvider);
+    App.setStatus("MetaMask detected", "success");
   } else {
+    App.setStatus("MetaMask not detected", "error");
     console.warn("No web3 detected. Falling back to http://127.0.0.1:7545. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask");
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
