@@ -223,6 +223,7 @@ body {
   background-color: #111;
   padding: 0.5rem;
   align-items: center;
+  border-bottom: 2px solid #aaaeb3;
 }
 
 .top-nav > a > .logo {
@@ -236,7 +237,7 @@ body {
 
 .site-container > .left-nav {
   background-color: rgb(29, 29, 29);
-  width: 24rem;
+  flex: 0 0 22rem;
   color: #bfbfbf;
   display: flex;
 }
@@ -257,9 +258,14 @@ body {
   border-bottom: 1px solid #2c2b2b;
 }
 
+.site-container > .left-nav .item.active {
+  background-color: #464646;
+}
+
 .site-container > .left-nav .item > a {
   color: #bfbfbf;
   text-decoration: none;
+  width: 100%;
 }
 
 .site-container > .content {
@@ -295,8 +301,8 @@ input, textarea {
   background-color: #272b30;
 }
 
-.site-container .content form {
-  width: 30rem;
+.site-container .left-col {
+  width: 40rem;
 }
 
 .btn-primary {
@@ -322,12 +328,15 @@ input, textarea {
 
 #log {
   background-color: #1d1d1d;
-  min-height: 70rem;
-  width: 70rem;
+  height: 100vh;
   padding: 0.5rem;
   color: #fff;
   opacity: 0.9;
-  border-radius: 3px;           
+  border-radius: 3px;        
+}
+
+#log .log-line {
+  font-family: 'Courier New', Courier, monospace;
 }
 
 #log .log-line.success {
@@ -349,4 +358,8 @@ input, textarea {
 
 label {
   width: auto;
+}
+
+form {
+  margin-right: 0;
 }

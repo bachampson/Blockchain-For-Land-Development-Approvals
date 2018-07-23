@@ -150,7 +150,7 @@ window.App = {
         var address = value.valueOf();
 
         if (address.substring(0, 4) == '0x00') {
-          self.setStatus("Register address not found for " + daid);
+          self.setStatus("Register address not found for " + daid, "error");
           return;
         }
 
@@ -631,8 +631,7 @@ window.App = {
     var messageText = document.createTextNode(message);
     
     logLine.appendChild(timeStampElem);
-    var text = document.createTextNode("["+time.toLocaleTimeString()+"]");
-    //timeStampElem.innerText = "["+time.toLocaleTimeString()+"]";
+    var text = document.createTextNode("["+time.toLocaleTimeString()+"]:");
     timeStampElem.appendChild(text);
     logLine.appendChild(messageText);
     logElem.appendChild(logLine);
