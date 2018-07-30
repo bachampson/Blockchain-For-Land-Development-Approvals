@@ -12,7 +12,10 @@
     body { margin:0; padding:0; }
     #map { position: absolute; top:0; bottom:0; right:0; left:0; }
   </style>
-
+  <script src="https://cdn.ravenjs.com/3.26.4/raven.min.js" crossorigin="anonymous"></script>
+  <script>
+    Raven.config('https://a7ba522e586343fc8656dcc1882897d8@sentry.io/1251991').install()
+  </script>
 <style>
     #search {
       position: absolute;
