@@ -35,7 +35,7 @@ window.App = {
           console.error(err);
           return 0;
         }
-        let url = `http://23.101.217.250:8080/ipfs/${result[0].hash}`;
+        let url = `//23.101.217.250:8080/ipfs/${result[0].hash}`;
         el.html('Uploaded');
         el.prop('disabled', true);
         el.parent().siblings().eq(0).prop('disabled', true);
