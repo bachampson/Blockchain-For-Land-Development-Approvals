@@ -277,7 +277,10 @@ window.App = {
   },
 
   clear: function () {
-    document.getElementById("mainForm").reset();
+    var form = document.getElementById("mainForm");
+    if (form) {
+      form.reset();
+    }
   },
 
   submitDADetails: function () {
