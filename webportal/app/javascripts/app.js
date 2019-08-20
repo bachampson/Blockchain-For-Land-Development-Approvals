@@ -622,6 +622,10 @@ window.App = {
 
     var time = new Date();
     var logElem = document.getElementById("log");
+    
+    if (logElem == null)
+      return;
+
     var logLine = document.createElement("div");
     var timeStampElem = document.createElement("span");
     logLine.classList.add("log-line");
@@ -773,12 +777,19 @@ window.App = {
 
 };
 
-window.addEventListener('load', function () {
+window.addEventListener('load', async function () {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
     console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 MetaCoin, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
     // Use Mist/MetaMask's provider
-    window.web3 = new Web3(web3.currentProvider);
+
+    if (window.ethereum) {
+      window.web3 = new Web3(ethereum);
+      await ethereum.enable();
+    } else {
+      window.web3 = new Web3(web3.currentProvider);
+    }   
+    
     App.setStatus("MetaMask connected", "success");
   } else {
     App.setStatus("MetaMask not detected", "error");
